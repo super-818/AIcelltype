@@ -3,16 +3,17 @@
 AIcelltype是一个基于大语言模型的单细胞RNA-seq数据细胞类型自动注释R包，可以快速、准确地识别各种组织的细胞类型。
 
 ## 功能特点
-- 支持多种组织类型的细胞类型识别
-- 支持中文和英文两种语言输出
-- 可直接接收Seurat对象的差异基因列表
+- 支持非常多种新模型，不怕掉队，持续进化
+- 支持全世界任意组织类型的任意细胞类型识别
+- 支持中文和英文两种语言，更适合中国宝宝体质
 - 提供分组处理功能，支持大规模细胞集群分析
-- 输出格式可直接用于Seurat对象的细胞类型赋值
+- 输出结果直接整合进Seurat对象
 
 ## 安装方法
 
 ```r
 install.packages("devtools")
+library(devtools)
 devtools::install_github("super-818/AIcelltype")
 
 ```
@@ -20,7 +21,7 @@ devtools::install_github("super-818/AIcelltype")
 ## 依赖包
 AIcelltype依赖以下R包：
 - Seurat：用于单细胞数据处理
-- presto：用于差异基因分析
+- presto：加快而已
 - jsonlite：用于处理JSON数据
 - stringr：用于字符串处理
 - httr：用于HTTP请求
@@ -42,7 +43,6 @@ Sys.setenv(API_KEY = "你的API密钥")
 # 加载AIcelltype包
 library('AIcelltype')
 
-# 加载示例数据
 # 示例数据为肝脏组织的单细胞RNA-seq数据（sc_KPPC_aLiver_2.rds）
 data(sc_KPPC_aLiver_2)
 ```
@@ -50,7 +50,6 @@ data(sc_KPPC_aLiver_2)
 ### 3. 运行细胞类型注释
 
 ```r
-# 加载必要的包
 library('Seurat')
 
 # 查找差异基因
@@ -66,7 +65,7 @@ markers <- FindAllMarkers(
 # 调用ai_celltype函数进行细胞类型注释
 cluster2celltype <- ai_celltype(
   input = markers,
-  api_key = "sk-yehuhgsggcrskvssfzyttwyblvuavlaxpduzittyonoasgss",
+  api_key = "sk-yehuhgsggcrskvssfzyttwyblvuavlaxpduzittyonoasgss", #直接公开，star后就能使用
   api_url = "https://api.siliconflow.cn/v1/chat/completions", 
   model = "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
   tissuename = "肝脏",
