@@ -4,6 +4,7 @@ importFrom(stringr, str_remove_all, str_locate, str_extract_all, str_extract)
 importFrom(httr, POST, add_headers, status_code, content)
 
 # 导出主函数（用户可调用）
-# export(ds_celltype)
+export(ai_celltype)
+export(load_example_data)
 
 # 内部函数不导出（通过@keywords internal标记）

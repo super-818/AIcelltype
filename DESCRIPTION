@@ -1,18 +1,24 @@
 Package: AIcelltype
 Type: Package
-Title: Cell Type Annotation with AI (DeepSeek、KIMI...) API
+Title: AI-Based Cell Type Annotation for Single-Cell RNA-Seq Data
 Version: 0.1.0
 Maintainer: super <1041473098@qq.com>
 Authors@R: person("super", email = "1041473098@qq.com", role = c("aut", "cre"))
-Description: Automatically annotate cell types from scRNA-seq data using DeepSeek API, with built-in result parsing for Seurat.
+Description: An R package that leverages large language models (like DeepSeek) to automatically annotate cell types from single-cell RNA-seq data. It provides a simple interface to connect with AI APIs and parse the results into a format directly usable with Seurat objects. Includes example datasets for demonstration.
 License: MIT
 Imports:
   jsonlite (>= 1.8.7),
   stringr (>= 1.5.0),
   httr (>= 1.4.7),
   curl (>= 5.1.0),
-  Seurat (>= 4.9.9)  
+  Seurat (>= 4.9.9)
 Depends:
   R (>= 4.2.0)
 RoxygenNote: 7.3.2
 Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Suggests:
+  knitr,
+  rmarkdown
+VignetteBuilder: knitr
