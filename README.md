@@ -12,15 +12,9 @@ AIcelltype是一个基于大语言模型的单细胞RNA-seq数据细胞类型自
 ## 安装方法
 
 ```r
-# 从GitHub安装开发版本
-# 首先需要安装devtools包
 install.packages("devtools")
-# 然后安装AIcelltype包
-devtools::install_github("your_username/AIcelltype")
+devtools::install_github("super-818/AIcelltype")
 
-# 或从本地安装
-# 假设包源码位于本地目录
-install.packages("path/to/AIcelltype", repos = NULL, type = "source")
 ```
 
 ## 依赖包
@@ -32,7 +26,6 @@ AIcelltype依赖以下R包：
 - httr：用于HTTP请求
 - curl：用于网络通信
 
-首次使用时会自动检查并提示安装缺少的包。
 
 ## 使用示例
 
@@ -51,8 +44,7 @@ library('AIcelltype')
 
 # 加载示例数据
 # 示例数据为肝脏组织的单细胞RNA-seq数据（sc_KPPC_aLiver_2.rds）
-data_dir <- system.file("example", package = "AIcelltype")
-seurat_obj <- readRDS(file.path(data_dir, "sc_KPPC_aLiver_2.rds"))
+data(sc_KPPC_aLiver_2)
 ```
 
 ### 3. 运行细胞类型注释
@@ -60,7 +52,6 @@ seurat_obj <- readRDS(file.path(data_dir, "sc_KPPC_aLiver_2.rds"))
 ```r
 # 加载必要的包
 library('Seurat')
-library('presto')
 
 # 查找差异基因
 markers <- FindAllMarkers(
@@ -74,13 +65,14 @@ markers <- FindAllMarkers(
 
 # 调用ai_celltype函数进行细胞类型注释
 cluster2celltype <- ai_celltype(
-  input = markers,  # 输入差异基因列表
-  api_url = "https://api.siliconflow.cn/v1/chat/completions",  # API地址
-  model = "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",  # 使用的模型
-  tissuename = "肝脏",  # 组织名称
-  topgenenumber = 10,  # 每个cluster取前10个差异基因
-  group_input = FALSE,  # 是否分组处理
-  language = "zh"  # 输出语言为中文
+  input = markers,
+  api_key = "sk-yehuhgsggcrskvssfzyttwyblvuavlaxpduzittyonoasgss",
+  api_url = "https://api.siliconflow.cn/v1/chat/completions", 
+  model = "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+  tissuename = "肝脏",
+  topgenenumber = 10,
+  group_input = FALSE,
+  language = "zh"
 )
 ```
 
