@@ -1,6 +1,6 @@
 # AIcelltype
 
-AIcelltype是一个基于大语言模型的单细胞RNA-seq数据细胞类型自动注释R包，可以快速、准确地识别各种组织的细胞类型。
+AIcelltype是一个基于大语言模型的单细胞RNA-seq数据细胞类型自动注释R包，可以快速、准确地识别各种组织的细胞类型。也是我第一次写的包
 
 ## 功能特点
 - 支持非常多种新模型，不怕掉队，持续进化
@@ -18,17 +18,7 @@ devtools::install_github("super-818/AIcelltype")
 
 ```
 
-## 依赖包
-AIcelltype依赖以下R包：
-- Seurat：用于单细胞数据处理
-- presto：加快而已
-- jsonlite：用于处理JSON数据
-- stringr：用于字符串处理
-- httr：用于HTTP请求
-- curl：用于网络通信
-
-
-## 使用示例
+# 使用示例
 
 ### 1. 设置API密钥
 
@@ -102,15 +92,8 @@ DimPlot(sc_KPPC_aLiver_2, group.by = "CellType", label = TRUE)
 - `group_input`：是否分组调用API（单组>30个cluster时自动分组，默认FALSE）
 - `language`：输出语言，可选"zh"（中文）或"en"（英文），默认自动识别组织名称语言
 
-## 注意事项
-- API调用需要网络连接
-- 请确保API密钥的正确性和有效性
-- 下游分析前请人工检查结果
-- 对于不同组织类型，请修改`tissuename`参数以获得更准确的结果
+# 注意！！！ 解析偶尔有出错，解决办法是：
+没有什么是运行ai_celltype这个神奇函数解决不了的，如果有就再运行一次
 
-## 完整示例脚本
-完整的示例脚本位于包的`example`目录下的`test.R`文件中。
 
-## 版本信息
-- 版本：0.1.0
-- 最后更新：2025年
+
