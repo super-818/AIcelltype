@@ -44,7 +44,7 @@ library('Seurat')
 
 # 查找差异基因
 markers <- FindAllMarkers(
-  seurat_obj,
+  sc_KPPC_aLiver_2,
   only.pos = TRUE,
   min.pct = 0.25,
   logfc.threshold = 0.5,
@@ -68,11 +68,11 @@ cluster2celltype <- ai_celltype(
 ### 4. 结果整合与可视化
 
 ```r
-celltype_labels <- cluster2celltype[as.character(seurat_obj$seurat_clusters)]
+celltype_labels <- cluster2celltype[as.character(sc_KPPC_aLiver_2$seurat_clusters)]
 
 names(celltype_labels) <- NULL
 
-seurat_obj$CellType <- celltype_labels
+sc_KPPC_aLiver_2$CellType <- celltype_labels
 
 DimPlot(sc_KPPC_aLiver_2, group.by = "CellType", label = TRUE)
 
