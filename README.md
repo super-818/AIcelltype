@@ -86,7 +86,7 @@ DimPlot(sc_KPPC_aLiver_2, group.by = "CellType", label = TRUE)
 - `input`：输入数据，可以是Seurat差异基因列表（data.frame，含gene/cluster/avg_log2FC）或基因标记列表（list）
 - `tissuename`：组织名称（如"肝脏"或"liver"），用于精准注释
 - `api_key`：API密钥（默认从环境变量读取，需提前用Sys.setenv(API_KEY="xxx")设置）
-- `api_url`：API地址（固定为"https://api.siliconflow.cn/v1/chat/completions"）
+- `api_url`：API地址（默认为"https://api.siliconflow.cn/v1/chat/completions"）
 - `model`：模型名称（默认"deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"）
 - `topgenenumber`：每个cluster取前N个差异基因（默认10）
 - `group_input`：是否分组调用API（单组>30个cluster时自动分组，默认FALSE）
