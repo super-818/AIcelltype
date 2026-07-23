@@ -1,6 +1,7 @@
 # AIcelltype
 
 AIcelltype是一个基于大语言模型的单细胞RNA-seq数据细胞类型自动注释R包，可以快速、准确地识别各种组织的细胞类型。也是我第一次写的包
+参考：[super-818/ds-Celltype](https://github.com/Winnie09/GPTCelltype.git)
 
 ## 功能特点
 - 支持非常多种新模型，不怕掉队，持续进化
